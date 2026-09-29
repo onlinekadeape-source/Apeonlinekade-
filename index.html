@@ -1,107 +1,27 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="si">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>අපේ Online Kade | Smart Shopping for a Better You</title>
-  <meta name="description" content="අපේ Online Kade - Sri Lanka online shopping. Fashion, electronics, home & lifestyle products with easy WhatsApp ordering.">
-  <link rel="stylesheet" href="style.css">
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>අපේ Online Kade</title>
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
-<header class="header">
-  <div class="container nav">
-    <a class="brand" href="#home">
-      <img src="images/logo.png" alt="අපේ Online Kade Logo">
-    </a>
-    <nav>
-      <a href="#home">Home</a>
-      <a href="#shop">Shop</a>
-      <a href="#offers">Offers</a>
-      <a href="#contact">Contact</a>
-    </nav>
-    <button class="cart-btn" onclick="toggleCart()">🛒 Cart <span id="cartCount">0</span></button>
-  </div>
-</header>
-
-<main id="home">
-  <section class="hero">
-    <div class="container hero-wrap">
-      <img src="images/hero.png" alt="අපේ Online Kade - Shop Now From Anywhere in Sri Lanka">
-    </div>
-  </section>
-
-  <section class="quick">
-    <div class="container quick-grid">
-      <div>🚚 <b>Fast Delivery</b><span>Islandwide</span></div>
-      <div>🛡️ <b>Trusted Products</b><span>Quality First</span></div>
-      <div>🏷️ <b>Best Prices</b><span>Great Deals</span></div>
-      <div>🛒 <b>Easy Shopping</b><span>Order on WhatsApp</span></div>
-    </div>
-  </section>
-
-  <section class="shop-section" id="shop">
-    <div class="container">
-      <div class="section-head">
-        <div>
-          <p class="eyebrow">OUR COLLECTION</p>
-          <h2>Shop Our Products</h2>
-          <p>ඔයාට අවශ්‍ය භාණ්ඩ පහසුවෙන් තෝරගෙන WhatsApp හරහා order කරන්න.</p>
-        </div>
-        <input id="search" class="search" type="search" placeholder="Search products..." oninput="renderProducts()">
-      </div>
-
-      <div class="categories">
-        <button class="cat active" data-cat="All" onclick="setCategory('All')">All</button>
-        <button class="cat" data-cat="Fashion" onclick="setCategory('Fashion')">👕 Fashion</button>
-        <button class="cat" data-cat="Electronics" onclick="setCategory('Electronics')">📱 Electronics</button>
-        <button class="cat" data-cat="Home" onclick="setCategory('Home')">🏠 Home</button>
-        <button class="cat" data-cat="Kids" onclick="setCategory('Kids')">🧸 Kids</button>
-      </div>
-
-      <div id="products" class="products"></div>
-    </div>
-  </section>
-
-  <section class="promo" id="offers">
-    <div class="container promo-box">
-      <div>
-        <p class="eyebrow">SPECIAL OFFER</p>
-        <h2>Smart Shopping for a Better You</h2>
-        <p>අලුත් products සහ special deals අපේ Online Kade එකෙන්.</p>
-      </div>
-      <a href="#shop" class="primary">Shop Now →</a>
-    </div>
-  </section>
-
-  <section class="contact" id="contact">
-    <div class="container contact-box">
-      <div>
-        <p class="eyebrow">CONTACT US</p>
-        <h2>Order එක WhatsApp හරහා කරන්න</h2>
-        <p>Product එක තෝරලා <b>Order on WhatsApp</b> button එක ඔබන්න. ඔයාගේ WhatsApp number එක පසුව code එකට add කරන්න පුළුවන්.</p>
-      </div>
-      <a class="whatsapp-big" href="#" onclick="openWhatsApp(); return false;">💬 WhatsApp Order</a>
-    </div>
-  </section>
+<header class="header"><div class="nav">
+<a href="#home"><img src="images/logo.png" class="logo" alt="අපේ Online Kade"></a>
+<nav><a href="#shop">Shop</a><a href="#offers">Offers</a><a href="#contact">Contact</a></nav>
+<button class="cartBtn" onclick="toggleCart()">🛒 Cart <b id="cartCount">0</b></button>
+</div></header>
+<main>
+<section id="home" class="hero"><img src="images/hero.png" alt="Shop Now From Anywhere in Sri Lanka"></section>
+<section class="trust"><div>🚚 <b>Fast Delivery</b><small>Islandwide</small></div><div>🛡️ <b>Trusted Products</b><small>Quality First</small></div><div>🏷️ <b>Best Prices</b><small>Great Deals</small></div><div>🛒 <b>Easy Shopping</b><small>WhatsApp Order</small></div></section>
+<section id="shop" class="section"><div class="head"><div><span>OUR PRODUCTS</span><h1>Shop Our Products</h1><p>භාණ්ඩ තෝරගෙන WhatsApp හරහා පහසුවෙන් order කරන්න.</p></div><input id="search" placeholder="Search products..." oninput="renderProducts()"></div>
+<div id="cats" class="cats"></div><div id="products" class="grid"></div></section>
+<section id="offers" class="promo"><div><span>SPECIAL OFFER</span><h2>Smart Shopping for a Better You</h2><p>අලුත් products සහ special deals.</p></div><a href="#shop">Shop Now →</a></section>
+<section id="contact" class="contact"><h2>WhatsApp හරහා Order කරන්න</h2><p>Product එක තෝරලා Order button එක ඔබන්න.</p><a class="wa" onclick="openWhatsApp()">💬 WhatsApp Order</a></section>
 </main>
-
-<footer>
-  <div class="container footer">
-    <img src="images/logo.png" alt="අපේ Online Kade">
-    <div>© 2026 අපේ Online Kade. All Rights Reserved.</div>
-  </div>
-</footer>
-
-<aside id="cart" class="cart-panel">
-  <div class="cart-top"><h3>Your Cart</h3><button onclick="toggleCart()">✕</button></div>
-  <div id="cartItems"></div>
-  <div class="cart-bottom">
-    <strong>Total: Rs. <span id="cartTotal">0</span></strong>
-    <button class="primary full" onclick="checkout()">Order Cart on WhatsApp</button>
-  </div>
-</aside>
+<footer><img src="images/logo.png"><p>© 2026 අපේ Online Kade</p><a href="admin.html">Admin</a></footer>
+<aside id="cart" class="cart"><div class="cartHead"><h2>Your Cart</h2><button onclick="toggleCart()">✕</button></div><div id="cartItems"></div><div class="total">Total: Rs. <b id="cartTotal">0</b></div><button class="checkout" onclick="checkout()">Order Cart on WhatsApp</button></aside>
 <div id="overlay" class="overlay" onclick="toggleCart()"></div>
-
-<script src="script.js"></script>
-</body>
-</html>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="config.js"></script><script src="app.js"></script>
+</body></html>

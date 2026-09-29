@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="si"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Admin | අපේ Online Kade</title><link rel="stylesheet" href="style.css"></head>
+<body class="adminBody">
+<header class="adminTop"><a href="index.html"><img src="images/logo.png"></a><a href="index.html">← View Shop</a></header>
+<main class="adminWrap">
+<section id="loginBox" class="panel"><h1>Admin Login</h1><p>Products manage කරන්න login වෙන්න.</p>
+<input id="email" type="email" placeholder="Admin email"><input id="password" type="password" placeholder="Password">
+<button class="primary" onclick="login()">Login</button><p id="loginMsg"></p></section>
+<section id="adminApp" hidden>
+<div class="panel"><div class="row"><div><span>PRODUCT MANAGEMENT</span><h1>Add / Edit Product</h1></div><button onclick="logout()">Logout</button></div>
+<input id="pid" type="hidden">
+<label>Product Name</label><input id="pname" placeholder="උදා: Premium T-Shirt">
+<label>Price (Rs.)</label><input id="price" type="number" placeholder="2500">
+<label>Category</label><select id="category"><option>Fashion</option><option>Electronics</option><option>Home</option><option>Kids</option><option>Other</option></select>
+<label>Description</label><textarea id="desc" placeholder="Product details"></textarea>
+<label>Stock</label><input id="stock" type="number" value="10">
+<label>Product Image</label><input id="image" type="file" accept="image/*">
+<img id="preview" class="preview" hidden>
+<div class="row"><button class="primary" onclick="saveProduct()">Save Product</button><button onclick="clearForm()">Clear</button></div>
+<p id="saveMsg"></p></div>
+<div class="panel"><div class="row"><div><span>YOUR STORE</span><h2>Products</h2></div><button onclick="loadProducts()">Refresh</button></div><div id="adminProducts"></div></div>
+</section>
+</main>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="config.js"></script><script src="admin.js"></script>
+</body></html>

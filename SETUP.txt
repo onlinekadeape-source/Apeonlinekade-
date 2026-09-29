@@ -1,0 +1,56 @@
+# අපේ Online Kade — Admin Product System
+
+මෙම version එකේ:
+- index.html = customer shop
+- admin.html = products add/edit/delete කරන admin panel
+- Supabase = shared online database + product image storage
+- WhatsApp = 94781471365
+
+IMPORTANT:
+GitHub Pages එක static hosting නිසා products හැම customer කෙනාටම එකම විදිහට පෙන්වන්න online database එකක් අවශ්‍යයි. මේ package එක Supabase භාවිතා කරයි.
+
+SETUP STEPS
+
+1) https://supabase.com/ වෙත ගිහින් account එකක් හදා New Project එකක් create කරන්න.
+
+2) Supabase Dashboard → SQL Editor → New query.
+   මේ folder එකේ supabase.sql file එකේ සම්පූර්ණ code එක paste කර Run කරන්න.
+
+3) Storage → New bucket → name: products
+   Public bucket = ON.
+   Storage policies හදන්න:
+   - Public read access for products
+   - Authenticated users can upload
+   - Authenticated users can delete/update
+   (Supabase Dashboard එක policy wizard එකෙන් හදන්න.)
+
+4) Authentication → Users → Add user.
+   ඔයාගේ admin email + password එකක් හදන්න.
+   මේ email/password එකෙන් admin.html login වෙන්න.
+
+5) Supabase → Project Settings → API වලින්:
+   Project URL
+   anon public key
+   copy කරන්න.
+
+6) config.js open කර:
+   const SUPABASE_URL = "PASTE_YOUR_SUPABASE_PROJECT_URL";
+   const SUPABASE_ANON_KEY = "PASTE_YOUR_SUPABASE_ANON_KEY";
+   මෙතන values දෙක දාන්න.
+
+7) Website එක GitHub Pages එකට upload කරන්න.
+   index.html, admin.html, app.js, admin.js, config.js, style.css, images folder, supabase.sql එක repository එකේ root එකේ තියෙන්න.
+
+8) Customer website:
+   https://YOUR-USERNAME.github.io/REPOSITORY/
+
+9) Admin:
+   https://YOUR-USERNAME.github.io/REPOSITORY/admin.html
+
+10) Admin login → Add/Edit Product:
+   Product Name → Price → Category → Description → Stock → Image → Save Product
+
+Save කළාම customer website එකේ product එක database එකෙන් automatically load වෙනවා.
+
+SECURITY NOTE
+Supabase anon key එක browser website එකේ තිබීම normal. Database security එක RLS policies මත රඳා පවතී. Admin email/password browser code එකට ලියන්න එපා.
